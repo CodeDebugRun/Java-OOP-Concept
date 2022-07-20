@@ -1,7 +1,4 @@
-package Constructor;
-
-public class BankAccountConstructor {
-
+public class AccountInfo {
     private String name;
     private String surname;
     private String address;
@@ -9,51 +6,33 @@ public class BankAccountConstructor {
     private String phoneNumber;
     private String IBANNumber;
     private String accountNumber;
+    private String password;
     private double accountBalance;
     private double depositBalance;
     private double withdrawBalance;
     private double remainingBalance;
 
-    public BankAccountConstructor() {
-        //System.out.println("Bank-----Account-----Constructor ");
-        //Varsayilan degerler boyle yazilabilir ancak olusturdugumuz constructor method unu
-        //varsayilan olusturmak icin bu metoddan tekrar cagirabiliriz
-        /*this.name = "Default Name";
-        this.surname = "DefaultSurname";
-        this.address = "DefaultAddress";
-        this.emailAddress = "DefaultEmailAddress";
-        this.phoneNumber = "DefaultPhoneNumber";
-        this.accountNumber = "DefaultAccountNumber";
-        this.IBANNumber = "DefaultIBANNumber";*/
-        //Varsayilan icin metod cagirma
+    public AccountInfo() {
+
         this ("Default Name", "Default Surname", "Default Address",
                 "Default Email Address", "DefaultPhoneNumber",
-                "Default IBAN Number", "Default Account Number");
+                "Default IBAN Number", "Default Account Number", "**********");
         this.accountBalance = 0.0;//deger girilmesede default olarak sifir ataniyor
         this.depositBalance = 0.0;
         this.withdrawBalance = 0.0;
         this.remainingBalance = 0.0;
 
-        //Constructor body defaultta bir kez this ile asagidaki metodu cagirabiliriz
-        //Ikinci cagirmada hata veriyor.
-        //Call to 'this()' must be first statement in constructor body
-        //this (0.0, 0.0, 0.0, 0.0);
+
 
     }
-    public BankAccountConstructor(String name, String surname, String phoneNumber){
-       /* this.name = name;
-        this.surname = surname;
-        this.phoneNumber = phoneNumber;
+    public AccountInfo(String name, String surname, String phoneNumber){
 
-        this.accountBalance = 0.0;
-        this.remainingBalance = 0.0;*/
-        //Verilerin bir kismi elimizde bir kismini defaultan aliyoruz
         this(name, surname, "address","emailAddress",phoneNumber,
-                "ibannumber", "account number");
+                "ibannumber", "account number", "********");
 
     }
-    public BankAccountConstructor(String name, String surname, String address, String emailAddress,
-                                  String phoneNumber,String IBANNumber,String accountNumber) {
+    public AccountInfo(String name, String surname, String address, String emailAddress,
+                                  String phoneNumber,String IBANNumber,String accountNumber,String password) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -61,6 +40,7 @@ public class BankAccountConstructor {
         this.phoneNumber = phoneNumber;
         this.IBANNumber = IBANNumber;
         this.accountNumber = accountNumber;
+        this.password = password;
 
     }
     public void showUserInfo(){
@@ -72,7 +52,7 @@ public class BankAccountConstructor {
         System.out.println("Kullanici IBAN  : " + this.IBANNumber);
         System.out.println("Kullanici hesap no : " + this.accountNumber);
     }
-    public BankAccountConstructor(double accountBalance, double depositBalance, double withdrawBalance,
+    public AccountInfo(double accountBalance, double depositBalance, double withdrawBalance,
                                   double remainingBalance){
         this.accountBalance = accountBalance;
         this.depositBalance = depositBalance;
@@ -93,6 +73,14 @@ public class BankAccountConstructor {
             System.out.println("Your remaining Balance is : " + (accountBalance-amount));
             accountBalance -= amount;
         }
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

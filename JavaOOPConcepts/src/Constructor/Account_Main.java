@@ -9,9 +9,18 @@ public class Account_Main {
 
         account01.putMoney(1000);
         account01.putMoney(2000);
-        System.out.println(account01.getAccountBalance());
+        //System.out.println(account01.getAccountBalance());
         account01.getMoney(1500);
-        System.out.println(account01.getAccountBalance());
+
+        BankAccountConstructor account02 = new BankAccountConstructor();
+        //System.out.println(account02.getAccountBalance());
+
+        //3 parametreli method
+        BankAccountConstructor account03 = new BankAccountConstructor("Ali veli", "Sahingoz",
+                "telefon no" );
+        account02.showUserInfo();
+
+
 
 
 
